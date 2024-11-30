@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Pure CSS/SVG Tic Tac Toe 2021 😎</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form class="game">
+  <input type="checkbox" id="x-0"/>
+  <svg class="x board__x" style="--x: 0; --y: 0;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-0"/>
+  <svg class="o board__o" style="--x: 0; --y: 0;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-1"/>
+  <svg class="x board__x" style="--x: 1; --y: 0;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-1"/>
+  <svg class="o board__o" style="--x: 1; --y: 0;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-2"/>
+  <svg class="x board__x" style="--x: 2; --y: 0;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-2"/>
+  <svg class="o board__o" style="--x: 2; --y: 0;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-3"/>
+  <svg class="x board__x" style="--x: 0; --y: 1;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-3"/>
+  <svg class="o board__o" style="--x: 0; --y: 1;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-4"/>
+  <svg class="x board__x" style="--x: 1; --y: 1;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-4"/>
+  <svg class="o board__o" style="--x: 1; --y: 1;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-5"/>
+  <svg class="x board__x" style="--x: 2; --y: 1;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-5"/>
+  <svg class="o board__o" style="--x: 2; --y: 1;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-6"/>
+  <svg class="x board__x" style="--x: 0; --y: 2;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-6"/>
+  <svg class="o board__o" style="--x: 0; --y: 2;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-7"/>
+  <svg class="x board__x" style="--x: 1; --y: 2;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-7"/>
+  <svg class="o board__o" style="--x: 1; --y: 2;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <input type="checkbox" id="x-8"/>
+  <svg class="x board__x" style="--x: 2; --y: 2;" viewBox="0 0 100 100">
+    <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+    <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+  </svg>
+  <input type="checkbox" id="o-8"/>
+  <svg class="o board__o" style="--x: 2; --y: 2;" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+  </svg>
+  <div class="board">
+    <svg class="board__line" viewBox="0 0 10 300" style="--rotate: 0; --shift: -1; --delay: 0.75;">
+      <path d="M 5 5 L 5 295" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+    </svg>
+    <svg class="board__line" viewBox="0 0 10 300" style="--rotate: 1; --shift: -1; --delay: 0.5;">
+      <path d="M 5 5 L 5 295" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+    </svg>
+    <svg class="board__line" viewBox="0 0 10 300" style="--rotate: 0; --shift: 1; --delay: 1;">
+      <path d="M 5 5 L 5 295" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+    </svg>
+    <svg class="board__line" viewBox="0 0 10 300" style="--rotate: 1; --shift: 1; --delay: 0.25;">
+      <path d="M 5 5 L 5 295" stroke-width="10" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"></path>
+    </svg>
+    <div class="board__cell">
+      <label for="x-0">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-0">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-1">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-1">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-2">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-2">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-3">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-3">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-4">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-4">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-5">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-5">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-6">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-6">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-7">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-7">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+    <div class="board__cell">
+      <label for="x-8">
+        <svg class="x ghost" viewBox="0 0 100 100">
+          <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+          <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        </svg>
+      </label>
+      <label for="o-8">
+        <svg class="o ghost" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+        </svg>
+      </label>
+    </div>
+  </div>
+  <div class="game__result game__result--x result">
+    <div class="confetti" style="--rotation: 78.33541213982656; --travel: -84.00240825772545;">🎉</div>
+    <div class="confetti" style="--rotation: -0.8683216975649515; --travel: -51.411404196668784;">🎉</div>
+    <div class="confetti" style="--rotation: -47.25928352884178; --travel: -19.909948747568794;">🎉</div>
+    <div class="confetti" style="--rotation: 75.22941599872925; --travel: -30.949575791134798;">🎉</div>
+    <div class="confetti" style="--rotation: -12.170045011722621; --travel: -67.99452973553845;">🎉</div>
+    <div class="confetti" style="--rotation: 50.30285656935786; --travel: -54.33894258493848;">🎉</div>
+    <div class="confetti" style="--rotation: 50.628723288652964; --travel: -37.775327436721675;">🎉</div>
+    <div class="confetti" style="--rotation: -4.722880405408617; --travel: -94.68321705346115;">🎉</div>
+    <div class="confetti" style="--rotation: 16.410658363306666; --travel: -26.13882012065225;">🎉</div>
+    <div class="confetti" style="--rotation: 25.134604332403228; --travel: -75.46733768674186;">🎉</div>
+    <div class="result__content">
+      <div class="result__title">Winner!</div>
+      <svg class="x result__winner" viewBox="0 0 100 100">
+        <path class="cross" d="M 80 20 L 20 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+        <path class="cross" d="M 20 20 L 80 80" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100"></path>
+      </svg>
+    </div>
+  </div>
+  <div class="game__result game__result--o result">
+    <div class="confetti" style="--rotation: 37.74936334375154; --travel: -9.58905723203667;">🎉</div>
+    <div class="confetti" style="--rotation: 5.920367986688092; --travel: -27.900193237861547;">🎉</div>
+    <div class="confetti" style="--rotation: 57.981422031087476; --travel: -33.369073293264265;">🎉</div>
+    <div class="confetti" style="--rotation: 40.89266336312576; --travel: -42.003411276435166;">🎉</div>
+    <div class="confetti" style="--rotation: 86.09565657751659; --travel: -36.18488200258183;">🎉</div>
+    <div class="confetti" style="--rotation: 45.24552727888792; --travel: -34.13225168403411;">🎉</div>
+    <div class="confetti" style="--rotation: -46.15387212065549; --travel: -17.032137635590637;">🎉</div>
+    <div class="confetti" style="--rotation: -3.837738245220109; --travel: -52.96853587675186;">🎉</div>
+    <div class="confetti" style="--rotation: -2.2319518049943667; --travel: -79.91694472075996;">🎉</div>
+    <div class="confetti" style="--rotation: 11.244254684942376; --travel: -89.3084723405343;">🎉</div>
+    <div class="result__content">
+      <div class="result__title">Winner!</div>
+      <svg class="o result__winner" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="30" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="200" stroke-dashoffset="200"></circle>
+      </svg>
+    </div>
+  </div>
+  <div class="game__result game__result--draw result">
+    <div class="result__content">
+      <div class="result__title">Draw...</div>
+      <svg class="zzz result__winner" viewBox="0 0 24 24">
+        <path d="M23,12H17V10L20.39,6H17V4H23V6L19.62,10H23V12M15,16H9V14L12.39,10H9V8H15V10L11.62,14H15V16M7,20H1V18L4.39,14H1V12H7V14L3.62,18H7V20Z"></path>
+      </svg>
+    </div>
+  </div>
+  <button type="reset" title="Reset Board">
+    <svg class="reset" viewBox="0 0 24 24">
+      <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z"></path>
+    </svg>
+  </button>
+</form>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

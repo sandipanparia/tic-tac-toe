@@ -1,0 +1,343 @@
+@font-face {
+  font-family: Cyber;
+  src: url("https://assets.codepen.io/605876/Blender-Pro-Bold.otf");
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
+:root {
+  --size: 300px;
+  --piece-size: calc(var(--size) / 3);
+  --line: #e6e6e6;
+  --bg: #060d13;
+  --naught: #75f0b3;
+  --naught-alpha: rgba(117,240,179,0.5);
+  --cross: #c775f0;
+  --cross-alpha: rgba(199,117,240,0.5);
+  --draw-speed: 0.15;
+  --color: #2a2222;
+}
+@media (min-width: 768px) {
+  :root {
+    --size: 50vmin;
+  }
+}
+@media (max-height: 500px) {
+  :root {
+    --size: 300px;
+  }
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--color);
+  font-family: 'Cyber', sans-serif;
+  text-transform: uppercase;
+}
+svg {
+  filter: drop-shadow(0 -0.25vmin 0.25vmin #000) drop-shadow(0 0 0.5vmin var(--alpha)) drop-shadow(0 0 1vmin var(--alpha)) drop-shadow(0 0 5vmin var(--stroke)) brightness(1.2);
+  stroke: var(--stroke);
+}
+form,
+.board {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.game__result {
+  display: none;
+  position: absolute;
+  width: calc(var(--size) * 1.5);
+  height: calc(var(--size) * 1.5);
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+label,
+.o,
+.x {
+  position: absolute;
+  display: inline-block;
+  height: var(--piece-size);
+  width: var(--piece-size);
+}
+label {
+  cursor: pointer;
+}
+label:hover .ghost {
+  opacity: 0.5;
+}
+.ghost {
+  opacity: 0;
+  transition: opacity calc(var(--draw-speed) * 1s);
+}
+.o {
+  --alpha: var(--naught-alpha);
+  --stroke: var(--naught);
+  transform: rotateX(180deg);
+}
+.x {
+  --alpha: var(--cross-alpha);
+  --stroke: var(--cross);
+}
+.x path:nth-of-type(2) {
+  --delay: var(--draw-speed);
+}
+:checked + .x {
+  display: block;
+}
+:checked + .o {
+  display: block;
+}
+.board {
+  height: var(--size);
+  width: var(--size);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.board__x,
+.board__o {
+  display: none;
+  left: calc(var(--x) * (100% / 3));
+  top: calc(var(--y) * (100% / 3));
+  z-index: 2;
+  position: absolute;
+}
+.board__line {
+  --stroke: var(--line);
+  --alpha: rgba(230,230,230,0.5);
+  width: calc(var(--size) * 0.05);
+  height: var(--size);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(var(--rotate) * -90deg)) translate(calc(var(--shift) * ((var(--size) / 3) * 0.5)), 0);
+}
+.board__cell {
+  height: var(--piece-size);
+  width: var(--piece-size);
+}
+input,
+button {
+  position: absolute;
+}
+button {
+  top: 125%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  height: 5vmin;
+  width: 5vmin;
+  min-height: 48px;
+  min-width: 48px;
+  outline: transparent;
+  cursor: pointer;
+  display: none;
+  transition: transform calc(var(--draw-speed) * 1s);
+  -webkit-animation: fadeIn calc(var(--draw-speed) * 4s) calc(var(--draw-speed) * 2s) both;
+          animation: fadeIn calc(var(--draw-speed) * 4s) calc(var(--draw-speed) * 2s) both;
+}
+button:hover {
+  transform: translate(0, -4%);
+}
+button:active {
+  transform: translate(0, 2%) scale(0.8);
+}
+.reset {
+  height: 100%;
+  fill: var(--line);
+}
+input {
+  position: fixed;
+  left: 100%;
+}
+.result {
+  -webkit-animation: flyIn calc(var(--draw-speed) * 3s) ease-in both;
+          animation: flyIn calc(var(--draw-speed) * 3s) ease-in both;
+  -webkit-backdrop-filter: blur(25px);
+          backdrop-filter: blur(25px);
+  z-index: 10;
+}
+.result__content {
+  height: 40%;
+  width: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 15%;
+  background: rgba(36,51,66,0.8);
+  color: #fff;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 2rem;
+  box-shadow: 0 3vmin 2.5vmin -2.5vmin #000;
+}
+.result__winner {
+  position: static;
+  height: calc(var(--size) / 3);
+}
+.zzz {
+  --stroke: #197fe6;
+  fill: var(--stroke);
+}
+:checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even) {
+  display: block;
+}
+:checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(even),
+:checked ~ :checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd),
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .board .board__cell label:nth-of-type(odd) {
+  display: none;
+}
+#x-0:checked ~ #x-1:checked ~ #x-2:checked ~ .game__result--x,
+#x-3:checked ~ #x-4:checked ~ #x-5:checked ~ .game__result--x,
+#x-6:checked ~ #x-7:checked ~ #x-8:checked ~ .game__result--x,
+#x-0:checked ~ #x-3:checked ~ #x-6:checked ~ .game__result--x,
+#x-1:checked ~ #x-4:checked ~ #x-7:checked ~ .game__result--x,
+#x-2:checked ~ #x-5:checked ~ #x-8:checked ~ .game__result--x,
+#x-0:checked ~ #x-4:checked ~ #x-8:checked ~ .game__result--x,
+#x-2:checked ~ #x-4:checked ~ #x-6:checked ~ .game__result--x,
+#o-0:checked ~ #o-1:checked ~ #o-2:checked ~ .game__result--o,
+#o-3:checked ~ #o-4:checked ~ #o-5:checked ~ .game__result--o,
+#o-6:checked ~ #o-7:checked ~ #o-8:checked ~ .game__result--o,
+#o-0:checked ~ #o-3:checked ~ #o-6:checked ~ .game__result--o,
+#o-1:checked ~ #o-4:checked ~ #o-7:checked ~ .game__result--o,
+#o-2:checked ~ #o-5:checked ~ #o-8:checked ~ .game__result--o,
+#o-0:checked ~ #o-4:checked ~ #o-8:checked ~ .game__result--o,
+#o-2:checked ~ #o-4:checked ~ #o-6:checked ~ .game__result--o {
+  display: flex;
+}
+#x-0:checked ~ #x-1:checked ~ #x-2:checked ~ .game__result--x ~ .game__result--draw,
+#x-3:checked ~ #x-4:checked ~ #x-5:checked ~ .game__result--x ~ .game__result--draw,
+#x-6:checked ~ #x-7:checked ~ #x-8:checked ~ .game__result--x ~ .game__result--draw,
+#x-0:checked ~ #x-3:checked ~ #x-6:checked ~ .game__result--x ~ .game__result--draw,
+#x-1:checked ~ #x-4:checked ~ #x-7:checked ~ .game__result--x ~ .game__result--draw,
+#x-2:checked ~ #x-5:checked ~ #x-8:checked ~ .game__result--x ~ .game__result--draw,
+#x-0:checked ~ #x-4:checked ~ #x-8:checked ~ .game__result--x ~ .game__result--draw,
+#x-2:checked ~ #x-4:checked ~ #x-6:checked ~ .game__result--x ~ .game__result--draw,
+#o-0:checked ~ #o-1:checked ~ #o-2:checked ~ .game__result--o ~ .game__result--draw,
+#o-3:checked ~ #o-4:checked ~ #o-5:checked ~ .game__result--o ~ .game__result--draw,
+#o-6:checked ~ #o-7:checked ~ #o-8:checked ~ .game__result--o ~ .game__result--draw,
+#o-0:checked ~ #o-3:checked ~ #o-6:checked ~ .game__result--o ~ .game__result--draw,
+#o-1:checked ~ #o-4:checked ~ #o-7:checked ~ .game__result--o ~ .game__result--draw,
+#o-2:checked ~ #o-5:checked ~ #o-8:checked ~ .game__result--o ~ .game__result--draw,
+#o-0:checked ~ #o-4:checked ~ #o-8:checked ~ .game__result--o ~ .game__result--draw,
+#o-2:checked ~ #o-4:checked ~ #o-6:checked ~ .game__result--o ~ .game__result--draw {
+  display: none;
+}
+#x-0:checked ~ #x-1:checked ~ #x-2:checked ~ .game__result--x ~ button,
+#x-3:checked ~ #x-4:checked ~ #x-5:checked ~ .game__result--x ~ button,
+#x-6:checked ~ #x-7:checked ~ #x-8:checked ~ .game__result--x ~ button,
+#x-0:checked ~ #x-3:checked ~ #x-6:checked ~ .game__result--x ~ button,
+#x-1:checked ~ #x-4:checked ~ #x-7:checked ~ .game__result--x ~ button,
+#x-2:checked ~ #x-5:checked ~ #x-8:checked ~ .game__result--x ~ button,
+#x-0:checked ~ #x-4:checked ~ #x-8:checked ~ .game__result--x ~ button,
+#x-2:checked ~ #x-4:checked ~ #x-6:checked ~ .game__result--x ~ button,
+#o-0:checked ~ #o-1:checked ~ #o-2:checked ~ .game__result--o ~ button,
+#o-3:checked ~ #o-4:checked ~ #o-5:checked ~ .game__result--o ~ button,
+#o-6:checked ~ #o-7:checked ~ #o-8:checked ~ .game__result--o ~ button,
+#o-0:checked ~ #o-3:checked ~ #o-6:checked ~ .game__result--o ~ button,
+#o-1:checked ~ #o-4:checked ~ #o-7:checked ~ .game__result--o ~ button,
+#o-2:checked ~ #o-5:checked ~ #o-8:checked ~ .game__result--o ~ button,
+#o-0:checked ~ #o-4:checked ~ #o-8:checked ~ .game__result--o ~ button,
+#o-2:checked ~ #o-4:checked ~ #o-6:checked ~ .game__result--o ~ button {
+  display: block;
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ .game__result--draw {
+  display: block;
+}
+:checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ :checked ~ button {
+  display: block;
+}
+.board__line path,
+.o circle,
+.x path {
+  -webkit-animation: draw calc(var(--draw-speed) * 1s) calc(var(--delay, 0) * 1s) ease-in both;
+          animation: draw calc(var(--draw-speed) * 1s) calc(var(--delay, 0) * 1s) ease-in both;
+}
+.confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  -webkit-animation: celebrate 1s forwards, fadeOut calc(var(--draw-speed) * 1s) calc((1 - var(--draw-speed)) * 1s) forwards;
+          animation: celebrate 1s forwards, fadeOut calc(var(--draw-speed) * 1s) calc((1 - var(--draw-speed)) * 1s) forwards;
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 250%) scale(0);
+  }
+}
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 250%) scale(0);
+  }
+}
+@-webkit-keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@-webkit-keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes celebrate {
+  from {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) * 1deg)) scale(0) translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) * 1deg)) scale(1) translate(0, calc(var(--travel) * 1vmin));
+  }
+}
+@keyframes celebrate {
+  from {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) * 1deg)) scale(0) translate(0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--rotation) * 1deg)) scale(1) translate(0, calc(var(--travel) * 1vmin));
+  }
+}
